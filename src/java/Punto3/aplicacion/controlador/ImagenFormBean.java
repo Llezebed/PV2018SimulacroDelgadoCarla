@@ -54,7 +54,9 @@ public StreamedContent getImagenSubida()throws IOException{
         
     }
     else
+        
     { String nuevaImg= context.getExternalContext().getRequestParameterMap().get("numImg");
+    //No puedo convertir true desde tipo class java.lang.String a int, ese es el error que me dice el index, pero si deberia poder,no pude arreglarlo
       int indice= Integer.parseInt(nuevaImg);
       setNuevaImagen(getListadoImagenes().getListaImagenes().get(indice).getImagen());
     if(getImagen()==null){

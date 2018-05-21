@@ -46,7 +46,8 @@ public class LibroFormBean {
         
      public void buscarLibro(){
          String b;
-         
+         //Probe de varias formas para que buscara pero no logre que funcionara
+         //Y he tenido algunos problemas con el Tom Cat de repente mostraba otra interfaz que no era la habitual
         for(int i=0;i>libros.getLista().size();i++){
            
          if(libros.getLista().get(i).getNombreLibro().equals(bl)) {
