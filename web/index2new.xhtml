@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+   
+   
+    <body>
+        <p:panel id="plnLibros" header="Tabla de Libros">
+            
+            <h:form id="frmLibros">
+                    <p:panelGrid id="pnlBotones" columns="2">
+                        <p:commandButton id="btnAgregarL" value="Agregar Libro"
+                                         update="pnlMuestraLibros" actionListener="#{libroFormBean.establecerLibro(cadaLibro)}"/>
+                        <p:commandButton id="btnBuscarL" value="Buscar Libro"/>
+                </p:panelGrid>
+                    <p:panelGrid id="pnlMuestraLibros" columns="3">
+                        <p:dataTable id="tblLibros" value="#{libroFormBean.libros.lista}" 
+                                     var="cadalibro" emptyMessage="No hay ningun libro">
+                            <p:column headerText="Nombre del Libro">
+                                <p:outputLabel value="#{cadalibro.nombreLibro}"/>
+                            </p:column>
+                             <p:column headerText="Nombre del Autor">
+                                 <p:outputLabel value="#{cadalibro.autor}"/>
+                            </p:column>
+                             <p:column headerText="Codigo del Libro">
+                                 <p:outputLabel value="#{cadalibro.codigo}"/>
+                            </p:column>
+                        </p:dataTable>
+                </p:panelGrid>
+                
+               </h:form>  
+           
+        </p:panel>
+             
+       
+    </body>
+</html>
+

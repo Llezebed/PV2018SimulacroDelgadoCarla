@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    <body>
+        <p:panel id="pnlImagenes" header="Tabla de Imagenes">
+            <p:growl id="mensajes" showDetail="true"/>
+            <h:form id="frmCargaImagen" enctype="multipart/form-data">
+                <h:panelGrid id="pnlGridCargaImagen" columns="2">
+                    <p:outputLabel for="img" value="Imagen:"/>
+                    <p:fileUpload id="img" value="#{imagenFormBean.file}" 
+                                  mode="simple" invalidFileMessage="No puedo cargar ese archivo"/>
+                    <p:commandButton id="btnGuardarImagen" value="Guardar" update="pnlNuestraImagen" 
+                                     ajax="false" actionListener="#{imagenFormBean.agregarImagen()}"/>
+                    <p:commandButton id="btnReiniciarImagen" value="Reiniciar" update="pnlNuestraImagen" 
+                                     ajax="false" actionListener="#{imagenFormBean.reiniciarImagen()}"/> 
+                    <p:panel id="pnlMuestaImagen">
+                        <p:graphicImage width="100" value="#{imagenFormBean.imagenSubida}" height="100" cache="false" alt="Imagen no disponible"/>
+                    </p:panel>
+                </h:panelGrid>
+            </h:form>
+            <h:form id="tblMuestraLista">
+                <p:dataTable id="tblImagenes" var="imgs" value="#{imagenFormBean.obtenerListaImagenes}" paginator="true" rows="true" emptyMessage="Nada">
+                    <p:column headerText="Imagen" style="width: 130px">
+                        <p:graphicImage width="100" value="#{imagenFormBean.imagenSubida}" height="100" cache="false" rendered="true" alt="No Disponible">
+                            <f:param name="numImg" value="#{imgs.numImg}"/>
+                        </p:graphicImage>
+                    </p:column>
+                    
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+        
+    </body>
+        </h:head>
+</html>

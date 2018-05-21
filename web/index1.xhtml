@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+
+      
+     >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <body>
+    <p:panel id="pnlPalabras" header="Tabla de Palabras">
+        <p:growl id="mensajes" showDetail="true"/>
+            <h:form id="frmPalabras">
+                <p:panelGrid id="pnlgridPalabras" columns="2">
+                    <p:outputLabel for="pal" value="Ingrese una Palabra"/>
+                    <p:inputText id="pal" value="#{palabrasFormBean.unaPalabra}" required="true"/>
+                    <p:commandButton id="btnAgregarP" value="Agregar Palabra" ajax="false" actionListener="#{palabrasFormBean.agregarPalabraLista()}" update="pnlMuestraLista"/>
+                    <p:commandButton id="btnReiniciarLista" value="Reiniciar Lista" ajax="false" actionListener="#{palabrasFormBean.reiniciarLista()}" update="pnlMuestraLista"/>
+                    <p:commandButton id="btnOrdenarAlf" value="Ordenar Alfabeticamente" ajax="false" actionListener="#{palabrasFormBean.ordenarAlfabeticamente()}" update="pnlMuestraLista"/>
+        
+                </p:panelGrid>
+                <p:panelGrid id="pnlMuestraLista" columns="2">
+                    <p:dataTable id="tblPal" value="#{palabrasFormBean.listaPalabras.listaPalabras}" var="cadaPalabra" emptyMessage="No hay ninguna palabra">
+                        <p:column headerText="Palabra">
+                            <p:outputLabel value="#{cadaPalabra}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panelGrid>
+                
+            </h:form>
+        </p:panel>
+    </body>
+</html>
