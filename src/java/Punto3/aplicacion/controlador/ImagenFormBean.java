@@ -37,7 +37,8 @@ public class ImagenFormBean implements Serializable {
     } 
     public void reiniciarImagen() {
         listadoImagenes=new ListadoImagenes();
-    } public ArrayList<Imagen> obtenerListaImagenes(){
+    } 
+    public ArrayList<Imagen> obtenerListaImagenes(){
        return listadoImagenes.getListaImagenes();
    }
   

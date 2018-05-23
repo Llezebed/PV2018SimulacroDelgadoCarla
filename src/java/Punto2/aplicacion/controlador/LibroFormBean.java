@@ -48,16 +48,17 @@ public class LibroFormBean {
          String b;
          //Probe de varias formas para que buscara pero no logre que funcionara
          //Y he tenido algunos problemas con el Tom Cat de repente mostraba otra interfaz que no era la habitual
-        for(int i=0;i>libros.getLista().size();i++){
+        for(int i=0;i<libros.getLista().size();i++){
            
          if(libros.getLista().get(i).getNombreLibro().equals(bl)) {
-             FacesMessage message=new FacesMessage("Hecho"+" Fue Agregada a a lista");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-             libro.setNombreLibro(libros.getLista().get(i).getNombreLibro());
-             libro.setAutor(libros.getLista().get(i).getAutor());
-             libro.setCodigo(libros.getLista().get(i).getCodigo());
+    
+                LibEnc.setAutor(libros.getLista().get(i).getAutor());
+             LibEnc.setCodigo(libros.getLista().get(i).getCodigo());
               libros=new ListaLibro();
               libros.agregarLista(LibEnc);
+              
+                       FacesMessage message=new FacesMessage("Hecho"+" Fue Agregada a a lista");
+                FacesContext.getCurrentInstance().addMessage(null, message);
          }
      }
      }

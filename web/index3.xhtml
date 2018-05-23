@@ -28,7 +28,7 @@ and open the template in the editor.
                 </h:panelGrid>
             </h:form>
             <h:form id="tblMuestraLista">
-                <p:dataTable id="tblImagenes" var="imgs" value="#{imagenFormBean.obtenerListaImagenes}" paginator="true" rows="true" emptyMessage="Nada">
+                <p:dataTable id="tblImagenes" var="imgs" value="#{imagenFormBean.listadoImagenes.listaImagenes}" paginator="true" rows="0" emptyMessage="Nada">
                     <p:column headerText="Imagen" style="width: 130px">
                         <p:graphicImage width="100" value="#{imagenFormBean.imagenSubida}" height="100" cache="false" rendered="true" alt="No Disponible">
                             <f:param name="numImg" value="#{imgs.numImg}"/>
